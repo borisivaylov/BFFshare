@@ -1,7 +1,6 @@
 package com.example.bffshare.domain.config;
 
 import com.example.storageservice.restexport.ZooStorageRestExport;
-import com.example.zoostoreproject.restexport.ZooStoreRestExport;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import feign.Feign;
 import feign.jackson.JacksonDecoder;

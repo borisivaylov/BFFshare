@@ -1,4 +1,4 @@
-package com.example.bffshare.core.mergeresponse;
+package com.example.bffshare.core.mergeresponse.itemcustomInfo;
 
 import com.example.bff.api.item.BFFInput;
 import com.example.bff.api.item.BFFOutput;
@@ -7,13 +7,12 @@ import com.example.storageservice.api.Item.getItem.ItemResponse;
 import com.example.storageservice.restexport.ZooStorageRestExport;
 import com.example.zoostoreproject.api.Item.getItem.GetItemResponse;
 import com.example.zoostoreproject.restexport.ZooStoreRestExport;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class MergeItemResponse implements MergeResponses {
+public class MergeItemCustomInfoOperationProcessor implements MergeResponses {
 
     public final ZooStoreRestExport zooStoreRestExport;
     public final ZooStorageRestExport zooStorageRestExport;
@@ -26,7 +25,6 @@ public class MergeItemResponse implements MergeResponses {
         try {
             getItemResponseStore = zooStoreRestExport.getItemById(bffInput.getId().toString());
             itemResponseStorage = zooStorageRestExport.getStorageItemById(bffInput.getId().toString());
-           // getItemResponseStore = zooStoreRestExport.getItemById(bffInput.getId().toString());
             System.out.println(itemResponseStorage.getId());
             System.out.println(getItemResponseStore.getId());
 

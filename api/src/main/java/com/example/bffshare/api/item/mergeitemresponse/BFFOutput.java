@@ -1,4 +1,4 @@
-package com.example.bffshare.api.item;
+package com.example.bffshare.api.item.mergeitemresponse;
 
 import com.example.bffshare.api.base.OperationResult;
 import com.fasterxml.jackson.annotation.JsonProperty;
