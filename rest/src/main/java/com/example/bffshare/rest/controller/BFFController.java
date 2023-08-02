@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,9 +40,14 @@ public class BFFController {
     @GetMapping("/itemInfo/page/{tagName}")
     Page<ItemPageResponse>getFullItemInfoPage(@PathVariable String tagName, @RequestParam(defaultValue = "0") int page,
                                               @RequestParam(defaultValue = "10") int size) throws Exception {
-        Pageable pageable = PageRequest.of(size,5);
+        Pageable pageable = PageRequest.of(size,2);
 
         return pageItemInfoOperationProcessor.process(ItemPageRequest.builder().tagName(tagName).build(),pageable);
     };
+    @GetMapping("/random")
+    public ResponseEntity rr(){
+       return ResponseEntity.ok("aUTHENCATED");
+    }
+
 
 }

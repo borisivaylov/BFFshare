@@ -20,6 +20,7 @@
         <module>domain</module>
         <module>rest</module>
         <module>restexport</module>
+        <module>persistence</module>
     </modules>
 
     <properties>
@@ -72,6 +73,29 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <version>3.1.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.11.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.11.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.11.5</version>
+        </dependency>
+
+
+
+
+
 
     </dependencies>
 

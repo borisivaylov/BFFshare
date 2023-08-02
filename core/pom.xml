@@ -21,6 +21,12 @@
 
         <dependency>
             <groupId>com.example.bffshare</groupId>
+            <artifactId>persistence</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.example.bffshare</groupId>
             <artifactId>domain</artifactId>
             <version>${revision}</version>
         </dependency>

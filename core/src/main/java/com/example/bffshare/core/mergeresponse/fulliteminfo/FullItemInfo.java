@@ -1,7 +1,5 @@
 package com.example.bffshare.core.mergeresponse.fulliteminfo;
 
-import com.example.bffshare.api.base.OperationInput;
-import com.example.bffshare.api.base.OperationResult;
 import com.example.bffshare.api.item.fulliteminfo.BFFItemInfoInput;
 import com.example.bffshare.api.item.fulliteminfo.BFFItemInfoOperation;
 import com.example.bffshare.api.item.fulliteminfo.BFFItemInfoOutput;
@@ -11,9 +9,7 @@ import com.example.zoostoreproject.api.Item.getallitems.GetAllItemsResponse;
 import com.example.zoostoreproject.restexport.ZooStoreRestExport;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
@@ -29,10 +25,10 @@ public class FullItemInfo implements BFFItemInfoOperation {
         List<GetItemByTagResponse> getItemByTagResponseList = zooStorageRestExport.getStorageItemsByTag(bffItemInfoInput.getTagName());
         List<BFFItemInfoOutput> bffItemInfoOutputList = new ArrayList<BFFItemInfoOutput>();
 
-        if (getAllItemsResponseList==null){
+        if (getAllItemsResponseList.isEmpty()){
             throw new Exception("No items found");
         }
-        if (getItemByTagResponseList==null){
+        if (getItemByTagResponseList.isEmpty()){
             throw new Exception("No items found");
         }
 

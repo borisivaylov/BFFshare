@@ -36,10 +36,10 @@ public class PageItemInfoOperationProcessor implements ItemPageOperation {
         List<GetItemByTagResponse> getItemByTagResponseList = zooStorageRestExport.getStorageItemsByTag(operationInput.getTagName());
         List<ItemPageResponse> itemPageResponseList = new ArrayList<ItemPageResponse>();
 
-        if (getAllItemsResponseList==null){
+        if (getAllItemsResponseList.isEmpty()){
             throw new Exception("No items found");
         }
-        if (getItemByTagResponseList==null){
+        if (getItemByTagResponseList.isEmpty()){
             throw new Exception("No items found");
         }
 
