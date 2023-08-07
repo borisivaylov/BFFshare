@@ -1,9 +1,10 @@
-package com.example.bffshare.core.mergeresponse.authenticate;
+package com.example.bffshare.core.mergeresponse.register;
 
 import com.example.bffshare.api.security.register.RegisterOperation;
 import com.example.bffshare.api.security.register.RegisterRequest;
 import com.example.bffshare.api.security.register.RegisterResponse;
-import com.example.bffshare.core.mergeresponse.extractEmail.GetJWTUserName;
+import com.example.bffshare.core.mergeresponse.JWTMultipleMethods.GetJWTUserName;
+import com.example.bffshare.persistence.entity.Cart;
 import com.example.bffshare.persistence.entity.Roles;
 import com.example.bffshare.persistence.entity.User;
 import com.example.bffshare.persistence.repository.UserRepository;
@@ -28,6 +29,7 @@ public class RegisterOperationProcessor implements RegisterOperation {
                 .email(registerRequest.getEmail())
                 .password(passwordEncoder.encode(registerRequest.getPassword()))
                 .phone(registerRequest.getPhone())
+                .cart(new Cart())
                 .role(Roles.CUSTOMER)
                 .build();
         userRepository.save(user);

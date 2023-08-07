@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example.bffshare</groupId>
   <artifactId>domain</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>0.0.3-SNAPSHOT</version>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -13,9 +13,9 @@
   </licenses>
   <dependencies>
     <dependency>
-      <groupId>com.example.bff</groupId>
+      <groupId>com.example.bffshare</groupId>
       <artifactId>api</artifactId>
-      <version>0.0.2-SNAPSHOT</version>
+      <version>0.0.3-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
     <dependency>

@@ -1,7 +1,6 @@
 package com.example.bffshare.rest.security.config;
 
-import com.example.bffshare.core.mergeresponse.extractEmail.GetJWTUserName;
-import com.example.bffshare.persistence.entity.User;
+import com.example.bffshare.core.mergeresponse.JWTMultipleMethods.GetJWTUserName;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -17,4 +17,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>com.example.bffshare</groupId>
+            <artifactId>api</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+
+    </dependencies>
+
 </project>

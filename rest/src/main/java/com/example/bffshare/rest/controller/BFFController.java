@@ -1,12 +1,13 @@
 package com.example.bffshare.rest.controller;
 
 
-import com.example.bff.api.item.BFFInput;
-import com.example.bff.api.item.BFFOutput;
+
 import com.example.bffshare.api.item.fulliteminfo.BFFItemInfoInput;
 import com.example.bffshare.api.item.fulliteminfo.BFFItemInfoOutput;
 import com.example.bffshare.api.item.iteminfopage.ItemPageRequest;
 import com.example.bffshare.api.item.iteminfopage.ItemPageResponse;
+import com.example.bffshare.api.item.mergeitemresponse.BFFInput;
+import com.example.bffshare.api.item.mergeitemresponse.BFFOutput;
 import com.example.bffshare.core.mergeresponse.fulliteminfo.FullItemInfo;
 import com.example.bffshare.core.mergeresponse.itemcustomInfo.MergeItemCustomInfoOperationProcessor;
 import com.example.bffshare.core.mergeresponse.pageiteminfo.PageItemInfoOperationProcessor;

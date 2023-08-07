@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>domain</artifactId>
+    <version>${revision}</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -19,7 +20,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.example.bff</groupId>
+            <groupId>com.example.bffshare</groupId>
             <artifactId>api</artifactId>
             <version>${revision}</version>
         </dependency>

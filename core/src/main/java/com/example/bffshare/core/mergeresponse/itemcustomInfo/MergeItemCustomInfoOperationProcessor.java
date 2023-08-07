@@ -1,8 +1,9 @@
 package com.example.bffshare.core.mergeresponse.itemcustomInfo;
 
-import com.example.bff.api.item.BFFInput;
-import com.example.bff.api.item.BFFOutput;
-import com.example.bff.api.item.MergeResponses;
+
+import com.example.bffshare.api.item.mergeitemresponse.BFFInput;
+import com.example.bffshare.api.item.mergeitemresponse.BFFOutput;
+import com.example.bffshare.api.item.mergeitemresponse.MergeItemCustomInfoOperation;
 import com.example.storageservice.api.Item.getItem.ItemResponse;
 import com.example.storageservice.restexport.ZooStorageRestExport;
 import com.example.zoostoreproject.api.Item.getItem.GetItemResponse;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class MergeItemCustomInfoOperationProcessor implements MergeResponses {
+public class MergeItemCustomInfoOperationProcessor implements MergeItemCustomInfoOperation {
 
     public final ZooStoreRestExport zooStoreRestExport;
     public final ZooStorageRestExport zooStorageRestExport;

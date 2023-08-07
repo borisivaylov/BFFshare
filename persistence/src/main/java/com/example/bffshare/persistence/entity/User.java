@@ -29,6 +29,9 @@ public class User implements UserDetails {
     private String lastName;
     private String email;
     private String phone;
+    @OneToOne (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "cart_Id",referencedColumnName = "cartId")
+    private Cart cart;
     @Enumerated
     private  Roles role;
 

@@ -24,7 +24,7 @@
     </modules>
 
     <properties>
-        <revision>0.0.2-SNAPSHOT</revision>
+        <revision>0.0.3-SNAPSHOT</revision>
         <zoostore.version>0.0.3-SNAPSHOT</zoostore.version>
         <zoostorage.version>0.0.3-SNAPSHOT</zoostorage.version>
     </properties>

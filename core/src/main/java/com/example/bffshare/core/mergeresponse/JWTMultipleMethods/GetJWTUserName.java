@@ -1,6 +1,5 @@
-package com.example.bffshare.core.mergeresponse.extractEmail;
+package com.example.bffshare.core.mergeresponse.JWTMultipleMethods;
 
-import com.example.bffshare.persistence.entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -14,7 +13,6 @@ import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 import java.util.function.Function;
 
 @Service

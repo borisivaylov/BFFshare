@@ -21,6 +21,12 @@
 
         <dependency>
             <groupId>com.example.bffshare</groupId>
+            <artifactId>api</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.example.bffshare</groupId>
             <artifactId>persistence</artifactId>
             <version>${revision}</version>
         </dependency>
@@ -28,12 +34,6 @@
         <dependency>
             <groupId>com.example.bffshare</groupId>
             <artifactId>domain</artifactId>
-            <version>${revision}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.example.bffshare</groupId>
-            <artifactId>api</artifactId>
             <version>${revision}</version>
         </dependency>
 
@@ -58,6 +58,12 @@
         <dependency>
             <groupId>com.example.zoostorage</groupId>
             <artifactId>api</artifactId>
+            <version>${zoostorage.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.example.zoostorage</groupId>
+            <artifactId>persistence</artifactId>
             <version>${zoostorage.version}</version>
         </dependency>
 

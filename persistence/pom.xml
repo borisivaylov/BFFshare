@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.example.bffshare</groupId>
         <artifactId>BFFshare</artifactId>
-        <version>0.0.2-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>persistence</artifactId>
