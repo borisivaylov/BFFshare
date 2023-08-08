@@ -1,4 +1,5 @@
-package com.example.bffshare.core.mergeresponse.itemcustomInfo;
+package com.example.bffshare.core.mergeresponse.item.itemcustomInfo;
+
 
 
 import com.example.bffshare.api.item.mergeitemresponse.BFFInput;

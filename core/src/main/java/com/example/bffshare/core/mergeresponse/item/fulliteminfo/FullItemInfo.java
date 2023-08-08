@@ -1,4 +1,5 @@
-package com.example.bffshare.core.mergeresponse.fulliteminfo;
+package com.example.bffshare.core.mergeresponse.item.fulliteminfo;
+
 
 import com.example.bffshare.api.item.fulliteminfo.BFFItemInfoInput;
 import com.example.bffshare.api.item.fulliteminfo.BFFItemInfoOperation;
@@ -11,6 +12,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 @Service
 @RequiredArgsConstructor
 public class FullItemInfo implements BFFItemInfoOperation {
@@ -32,7 +36,6 @@ public class FullItemInfo implements BFFItemInfoOperation {
             throw new Exception("No items found");
         }
 
-        BFFItemInfoOutput bffItemInfoOutput= new BFFItemInfoOutput();
 
         for (GetAllItemsResponse getAllItemsResponse: getAllItemsResponseList) {
 
@@ -47,11 +50,11 @@ public class FullItemInfo implements BFFItemInfoOperation {
                                                                 .build());
         }
 
-        for (int i = 0; i < getItemByTagResponseList.size(); i++) {
-
-                bffItemInfoOutputList.get(i).setPrice(getItemByTagResponseList.get(i).getPrice());
-                bffItemInfoOutputList.get(i).setQuantity(getItemByTagResponseList.get(i).getQuantity());
-        }
+        IntStream.range(0, Math.min(bffItemInfoOutputList.size(), getItemByTagResponseList.size()))
+                .forEach(i -> {
+                    bffItemInfoOutputList.get(i).setPrice(getItemByTagResponseList.get(i).getPrice());
+                    bffItemInfoOutputList.get(i).setQuantity(getItemByTagResponseList.get(i).getQuantity());
+                });
 
         return bffItemInfoOutputList;
     }

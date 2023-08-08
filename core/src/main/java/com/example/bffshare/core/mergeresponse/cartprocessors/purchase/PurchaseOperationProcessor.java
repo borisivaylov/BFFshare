@@ -12,8 +12,6 @@ import com.example.bffshare.persistence.repository.UserRepository;
 import com.example.storageservice.api.purchase.cartpurchase.StoragePurchaseRequest;
 import com.example.storageservice.restexport.ZooStorageRestExport;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -24,8 +22,8 @@ import java.util.Optional;
 public class PurchaseOperationProcessor implements PurchaseOperation {
 
      private  final ZooStorageRestExport zooStorageRestExport;
-     private  final   EmptyCartOperationProcessor emptyCartOperationProcessor;
-     private final UserRepository userRepository;
+     private  final EmptyCartOperationProcessor emptyCartOperationProcessor;
+     private  final UserRepository userRepository;
     @Override
     public PurchaseResult process(PurchaseRequest purchaseRequest) throws Exception {
 
@@ -40,11 +38,16 @@ public class PurchaseOperationProcessor implements PurchaseOperation {
                                         .sumPrice(user.getCart().getSumPrice()).build();
 
 
-       zooStorageRestExport.purchase(storagePurchaseRequest);
+      String status = zooStorageRestExport.purchase(storagePurchaseRequest).getStatus();
+        ; // zooStorageRestExport.purchase(storagePurchaseRequest);
 
+        if (status.equals("ERR")){
+            return PurchaseResult.builder().status("err").build();
+        }
        emptyCartOperationProcessor.process(EmptyCartContentsRequest.builder().userId(user.getUuid()).build());
 
 
-        return PurchaseResult.builder().status("Success").build();
+
+        return PurchaseResult.builder().status(status).build();
     }
 }

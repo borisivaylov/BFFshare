@@ -1,9 +1,9 @@
-package com.example.bffshare.core.mergeresponse.authenticate;
+package com.example.bffshare.core.mergeresponse.security.authenticate;
 
 import com.example.bffshare.api.security.authentication.AuthenticationOperation;
 import com.example.bffshare.api.security.authentication.AuthenticationRequest;
 import com.example.bffshare.api.security.authentication.AuthenticationResponse;
-import com.example.bffshare.core.mergeresponse.JWTMultipleMethods.GetJWTUserName;
+import com.example.bffshare.core.mergeresponse.security.JWTMultipleMethods.GetJWTUserName;
 import com.example.bffshare.persistence.entity.User;
 import com.example.bffshare.persistence.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

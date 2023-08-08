@@ -1,9 +1,9 @@
-package com.example.bffshare.core.mergeresponse.register;
+package com.example.bffshare.core.mergeresponse.security.register;
 
 import com.example.bffshare.api.security.register.RegisterOperation;
 import com.example.bffshare.api.security.register.RegisterRequest;
 import com.example.bffshare.api.security.register.RegisterResponse;
-import com.example.bffshare.core.mergeresponse.JWTMultipleMethods.GetJWTUserName;
+import com.example.bffshare.core.mergeresponse.security.JWTMultipleMethods.GetJWTUserName;
 import com.example.bffshare.persistence.entity.Cart;
 import com.example.bffshare.persistence.entity.Roles;
 import com.example.bffshare.persistence.entity.User;

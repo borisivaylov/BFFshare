@@ -1,4 +1,4 @@
-package com.example.bffshare.core.mergeresponse.JWTMultipleMethods;
+package com.example.bffshare.core.mergeresponse.security.JWTMultipleMethods;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
