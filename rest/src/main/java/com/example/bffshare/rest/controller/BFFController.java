@@ -4,11 +4,14 @@ package com.example.bffshare.rest.controller;
 
 import com.example.bffshare.api.item.fulliteminfo.BFFItemInfoInput;
 import com.example.bffshare.api.item.fulliteminfo.BFFItemInfoOutput;
+import com.example.bffshare.api.item.getallitemsparallel.GetAllItemsParallelInput;
+import com.example.bffshare.api.item.getallitemsparallel.GetAllItemsParallelResult;
 import com.example.bffshare.api.item.iteminfopage.ItemPageRequest;
 import com.example.bffshare.api.item.iteminfopage.ItemPageResponse;
 import com.example.bffshare.api.item.mergeitemresponse.BFFInput;
 import com.example.bffshare.api.item.mergeitemresponse.BFFOutput;
 import com.example.bffshare.core.mergeresponse.item.fulliteminfo.FullItemInfo;
+import com.example.bffshare.core.mergeresponse.item.getitemparallel.GetAllItemsParallelOperationProcessor;
 import com.example.bffshare.core.mergeresponse.item.itemcustomInfo.MergeItemCustomInfoOperationProcessor;
 import com.example.bffshare.core.mergeresponse.item.pageiteminfo.PageItemInfoOperationProcessor;
 import lombok.RequiredArgsConstructor;
@@ -29,6 +32,7 @@ public class BFFController {
     private final MergeItemCustomInfoOperationProcessor mergeItemResponse;
     private final FullItemInfo fullItemInfo;
     private final PageItemInfoOperationProcessor pageItemInfoOperationProcessor;
+    private final GetAllItemsParallelOperationProcessor getAllItemsParallelOperationProcessor;
 
     @GetMapping("/{itemId}")
     BFFOutput getItemBFF(@PathVariable UUID itemId) throws Exception {
@@ -48,6 +52,11 @@ public class BFFController {
     @GetMapping("/random")
     public ResponseEntity rr(){
        return ResponseEntity.ok("aUTHENCATED");
+    }
+
+    @GetMapping("/parallel/{string}")
+    List<GetAllItemsParallelResult> getAllItemsParallel(@PathVariable String string) throws Exception {
+        return getAllItemsParallelOperationProcessor.process(GetAllItemsParallelInput.builder().test(string).build());
     }
 
 

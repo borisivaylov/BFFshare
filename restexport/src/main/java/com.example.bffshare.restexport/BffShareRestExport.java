@@ -13,7 +13,7 @@ public interface BffShareRestExport {
 
     @RequestLine("GET /cart/{uuid}")
     ViewCartResponse getStorageItemById(@Param UUID uuid);
-    @RequestLine( "POST /cart//emptybff")
+    @RequestLine( "POST /cart/emptybff")
     EmptyCartContentsResponse emptyCartBff(@Param UUID uuid);
 
 }
