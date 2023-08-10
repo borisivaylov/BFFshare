@@ -37,8 +37,7 @@ public class PageItemInfoOperationProcessor implements ItemPageOperation {
             throw new Exception("No items found");
         }
 
-        for (GetAllItemsResponse getAllItemsResponse: getAllItemsResponseList) {
-
+        getAllItemsResponseList.forEach(getAllItemsResponse -> {
             itemPageResponseList.add(ItemPageResponse.builder()
                     .id(getAllItemsResponse.getId())
                     .title(getAllItemsResponse.getTitle())
@@ -48,7 +47,8 @@ public class PageItemInfoOperationProcessor implements ItemPageOperation {
                     .vendorName(getAllItemsResponse.getVendor())
                     .media(getAllItemsResponse.getMedia())
                     .build());
-        }
+
+        });
 
         for (int i = 0; i < getItemByTagResponseList.size(); i++) {
 
@@ -56,6 +56,6 @@ public class PageItemInfoOperationProcessor implements ItemPageOperation {
             itemPageResponseList.get(i).setQuantity(getItemByTagResponseList.get(i).getQuantity());
         }
 
-        return new PageImpl<>( itemPageResponseList,pageable,  itemPageResponseList.size());
+        return new PageImpl<>( itemPageResponseList,pageable, 2 );//itemPageResponseList.size());
     }
 }

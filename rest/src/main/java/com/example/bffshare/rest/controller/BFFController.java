@@ -5,12 +5,16 @@ package com.example.bffshare.rest.controller;
 import com.example.bffshare.api.item.fulliteminfo.BFFItemInfoInput;
 import com.example.bffshare.api.item.fulliteminfo.BFFItemInfoOutput;
 import com.example.bffshare.api.item.getallitemsparallel.GetAllItemsParallelInput;
+import com.example.bffshare.api.item.getallitemsparallel.GetAllItemsParallelOperation;
 import com.example.bffshare.api.item.getallitemsparallel.GetAllItemsParallelResult;
+import com.example.bffshare.api.item.getitembytitleregex.GetItemByTitleInput;
+import com.example.bffshare.api.item.getitembytitleregex.GetItemByTitleResult;
 import com.example.bffshare.api.item.iteminfopage.ItemPageRequest;
 import com.example.bffshare.api.item.iteminfopage.ItemPageResponse;
 import com.example.bffshare.api.item.mergeitemresponse.BFFInput;
 import com.example.bffshare.api.item.mergeitemresponse.BFFOutput;
 import com.example.bffshare.core.mergeresponse.item.fulliteminfo.FullItemInfo;
+import com.example.bffshare.core.mergeresponse.item.getItembytitleregex.GetItemByTitleOperationProcessor;
 import com.example.bffshare.core.mergeresponse.item.getitemparallel.GetAllItemsParallelOperationProcessor;
 import com.example.bffshare.core.mergeresponse.item.itemcustomInfo.MergeItemCustomInfoOperationProcessor;
 import com.example.bffshare.core.mergeresponse.item.pageiteminfo.PageItemInfoOperationProcessor;
@@ -32,7 +36,8 @@ public class BFFController {
     private final MergeItemCustomInfoOperationProcessor mergeItemResponse;
     private final FullItemInfo fullItemInfo;
     private final PageItemInfoOperationProcessor pageItemInfoOperationProcessor;
-    private final GetAllItemsParallelOperationProcessor getAllItemsParallelOperationProcessor;
+    private final GetAllItemsParallelOperation getAllItemsParallelOperationProcessor;
+    private final GetItemByTitleOperationProcessor getItemByTitleOperationProcessor;
 
     @GetMapping("/{itemId}")
     BFFOutput getItemBFF(@PathVariable UUID itemId) throws Exception {
@@ -57,6 +62,14 @@ public class BFFController {
     @GetMapping("/parallel/{string}")
     List<GetAllItemsParallelResult> getAllItemsParallel(@PathVariable String string) throws Exception {
         return getAllItemsParallelOperationProcessor.process(GetAllItemsParallelInput.builder().test(string).build());
+    }
+
+    @GetMapping ("/itemTitle/{string}")
+    Page<GetItemByTitleResult> itemsByTitle(@PathVariable String string,
+                                            @RequestParam(defaultValue = "1") int page,
+                                            @RequestParam(defaultValue = "2") int size) throws Exception {
+        Pageable pageable = PageRequest.of(page,1);
+        return getItemByTitleOperationProcessor.process(GetItemByTitleInput.builder().title(string).build(),pageable);
     }
 
 
