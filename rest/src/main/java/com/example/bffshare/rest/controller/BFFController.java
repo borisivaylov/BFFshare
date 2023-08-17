@@ -23,6 +23,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -56,7 +57,8 @@ public class BFFController {
     };
     @GetMapping("/random")
     public ResponseEntity rr(){
-       return ResponseEntity.ok("aUTHENCATED");
+       return
+               ResponseEntity.ok(SecurityContextHolder.getContext().getAuthentication().getName());
     }
 
     @GetMapping("/parallel/{string}")
