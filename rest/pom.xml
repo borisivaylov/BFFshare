@@ -62,13 +62,13 @@
 
 
     <build>
-        <finalName>com.example.bffshare.rest.BFFshareApplication</finalName>
+        <finalName>BFFShareApplication</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.example.bff.rest.BfFshareApplication</mainClass>
+                    <mainClass>com.example.bffshare.rest.BFFShareApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

@@ -20,7 +20,7 @@ public class ZooStoreClientFactory {
             return Feign.builder()
                     .encoder(new JacksonEncoder(objectMapper))
                     .decoder(new JacksonDecoder(objectMapper))
-                    .target(ZooStoreRestExport.class, "http://localhost:8081");
+                    .target(ZooStoreRestExport.class, "http://172.29.128.1:8081");
 
         }
     }

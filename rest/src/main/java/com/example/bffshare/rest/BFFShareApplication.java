@@ -14,10 +14,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(basePackages = "com.example.bffshare.persistence.repository")
 @EnableFeignClients(basePackages ="com.example.bffshare")
 @SpringBootApplication
-public class BfFshareApplication {
+public class BFFShareApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BfFshareApplication.class, args);
+        SpringApplication.run(BFFShareApplication.class, args);
     }
 
 }
