@@ -55,11 +55,6 @@ public class BFFController {
 
         return pageItemInfoOperationProcessor.process(ItemPageRequest.builder().tagName(tagName).build(),pageable);
     };
-    @GetMapping("/random")
-    public ResponseEntity rr(){
-       return
-               ResponseEntity.ok(SecurityContextHolder.getContext().getAuthentication().getName());
-    }
 
     @GetMapping("/parallel/{string}")
     List<GetAllItemsParallelResult> getAllItemsParallel(@PathVariable String string) throws Exception {

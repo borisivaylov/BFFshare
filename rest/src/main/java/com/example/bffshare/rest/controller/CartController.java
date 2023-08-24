@@ -45,7 +45,7 @@ public class CartController {
     RemoveItemResponse removeItem(@PathVariable UUID uuid) throws Exception {
         return removeItemOperationProcessor.process(RemoveItemRequest.builder().itemId(uuid).build());
     }
-    @GetMapping("/view")
+    @PostMapping("/view")
     ViewCartResponse getCart(@AuthenticationPrincipal User currentUser) throws Exception {
         return viewCartOperationProcessor.process(ViewCartRequest.builder().userId(currentUser.getUuid()).build());
     }

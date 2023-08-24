@@ -5,6 +5,7 @@ import com.example.bffshare.api.cart.viewallitems.ViewCartRequest;
 import com.example.bffshare.api.cart.viewallitems.ViewCartResponse;
 import com.example.bffshare.persistence.entity.User;
 import com.example.bffshare.persistence.repository.UserRepository;
+import com.example.storageservice.api.Item.getItem.ItemResponse;
 import com.example.storageservice.persistence.repository.OnSaleItemRepository;
 import com.example.storageservice.persistence.repository.ShipmentRepository;
 import com.example.storageservice.restexport.ZooStorageRestExport;
@@ -21,8 +22,6 @@ import java.util.NoSuchElementException;
 public class ViewCartOperationProcessor implements ViewAllOperation {
 
     private final UserRepository userRepository;
-   // private final OnSaleItemRepository onSaleItemRepository;
-    //private final ShipmentRepository shipmentRepository;
     private final ZooStorageRestExport zooStorageRestExport;
     @Override
     public ViewCartResponse process(ViewCartRequest operationInput) throws Exception {
@@ -30,17 +29,17 @@ public class ViewCartOperationProcessor implements ViewAllOperation {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User currentUser = userRepository.findByEmail(authentication.getName()).orElseThrow(()-> new UsernameNotFoundException("user not found"));
 
-        System.out.println(currentUser.getCart().getSumPrice());
+        currentUser.getCart().setSumPrice(0);
 
         currentUser.getCart().getItemMap().forEach((key, value)-> {
-
-            if (zooStorageRestExport.onSaleResult(key).isOnSale()) {
+            ItemResponse itemResponse = zooStorageRestExport.getStorageItemById(key.toString());
+            /*if (zooStorageRestExport.onSaleResult(key).isOnSale()) {
                 double actualPrice = zooStorageRestExport.getItemByIdReference(key).getPrice();
                 Integer discount = zooStorageRestExport.getItemDiscount(key).getDiscount();
-                double onSalePrice = (actualPrice * (1 - discount / 100)) * value;
+                double onSalePrice = (actualPrice * (1 - discount / 100)) * value;*/
 
-                currentUser.getCart().setSumPrice(currentUser.getCart().getSumPrice() - (actualPrice - onSalePrice));
-            }
+                currentUser.getCart().setSumPrice(currentUser.getCart().getSumPrice() + itemResponse.getPrice());
+           // }
         });
 
         return ViewCartResponse.builder()
