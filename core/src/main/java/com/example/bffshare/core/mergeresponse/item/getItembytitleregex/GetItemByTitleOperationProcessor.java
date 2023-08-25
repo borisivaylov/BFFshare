@@ -7,14 +7,15 @@ import com.example.storageservice.restexport.ZooStorageRestExport;
 import com.example.zoostoreproject.api.Item.bytitleregex.GetByTitleRegexResult;
 import com.example.zoostoreproject.restexport.ZooStoreRestExport;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
+
+ /* Returns all available information about items based on the input provided.
+    Uses regex to search by title. */
 
 @Service
 @RequiredArgsConstructor
@@ -39,7 +40,7 @@ public class GetItemByTitleOperationProcessor implements GetItemByTitleOperation
                             .price(zooStorageRestExport.getStorageItemById(getByTitleRegexResult.getId().toString()).getPrice())
                             .media(getByTitleRegexResult.getMedia())
                             .tags(getByTitleRegexResult.getTags())
-                                            .build());
+                            .build());
 
         });
 

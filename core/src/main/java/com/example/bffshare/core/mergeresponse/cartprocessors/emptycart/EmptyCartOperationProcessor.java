@@ -12,6 +12,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+// Empty all cart contents of the logged user
+
 @Service
 @RequiredArgsConstructor
 public class EmptyCartOperationProcessor implements EmptyCartContentsOperation {

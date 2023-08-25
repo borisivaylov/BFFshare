@@ -6,8 +6,6 @@ import com.example.bffshare.api.cart.viewallitems.ViewCartResponse;
 import com.example.bffshare.persistence.entity.User;
 import com.example.bffshare.persistence.repository.UserRepository;
 import com.example.storageservice.api.Item.getItem.ItemResponse;
-import com.example.storageservice.persistence.repository.OnSaleItemRepository;
-import com.example.storageservice.persistence.repository.ShipmentRepository;
 import com.example.storageservice.restexport.ZooStorageRestExport;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -15,7 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.NoSuchElementException;
+// Recalculates cart price and returns full information of it
 
 @Service
 @RequiredArgsConstructor
@@ -33,13 +31,7 @@ public class ViewCartOperationProcessor implements ViewAllOperation {
 
         currentUser.getCart().getItemMap().forEach((key, value)-> {
             ItemResponse itemResponse = zooStorageRestExport.getStorageItemById(key.toString());
-            /*if (zooStorageRestExport.onSaleResult(key).isOnSale()) {
-                double actualPrice = zooStorageRestExport.getItemByIdReference(key).getPrice();
-                Integer discount = zooStorageRestExport.getItemDiscount(key).getDiscount();
-                double onSalePrice = (actualPrice * (1 - discount / 100)) * value;*/
-
                 currentUser.getCart().setSumPrice(currentUser.getCart().getSumPrice() + itemResponse.getPrice());
-           // }
         });
 
         return ViewCartResponse.builder()

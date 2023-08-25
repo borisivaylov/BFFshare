@@ -6,25 +6,22 @@ import com.example.bffshare.api.item.getallitemsparallel.GetAllItemsParallelResu
 import com.example.storageservice.api.Item.getItem.ItemResponse;
 import com.example.storageservice.api.Item.getallitems.GetAllItemsRequest;
 import com.example.storageservice.api.Item.getallitems.GetAllItemsResponse;
-import com.example.storageservice.persistence.entity.Shipment;
-import com.example.storageservice.persistence.repository.ShipmentRepository;
 import com.example.storageservice.restexport.ZooStorageRestExport;
-import com.example.zoostoreproject.restexport.ZooStoreRestExport;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.UUID;
+
+/*  Fetches all available information about all items from
+    Store and Storage services and displays it using parallel stream */
+
 
 @Service
 @RequiredArgsConstructor
 public class GetAllItemsParallelOperationProcessor implements GetAllItemsParallelOperation {
 
     private final ZooStorageRestExport zooStorageRestExport;
-
-
 
     @Override
     public List<GetAllItemsParallelResult> process(GetAllItemsParallelInput operationInput) throws Exception {

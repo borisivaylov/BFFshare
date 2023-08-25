@@ -13,7 +13,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
+
+ /* Fetches all available information about all items from
+    Store and Storage services and displays it */
 
 @Service
 @RequiredArgsConstructor
@@ -37,18 +39,18 @@ public class FullItemInfo implements BFFItemInfoOperation {
         }
 
 
-        for (GetAllItemsResponse getAllItemsResponse: getAllItemsResponseList) {
+        getAllItemsResponseList.forEach( storeItem->{
 
-            bffItemInfoOutputList.add(BFFItemInfoOutput.builder()
-                                                                .id(getAllItemsResponse.getId())
-                                                                .title(getAllItemsResponse.getTitle())
-                                                                .description(getAllItemsResponse.getDescription())
-                                                                .tags(getAllItemsResponse.getTags())
-                                                                .description(getAllItemsResponse.getDescription())
-                                                                .vendorName(getAllItemsResponse.getVendor())
-                                                                .media(getAllItemsResponse.getMedia())
-                                                                .build());
-        }
+                bffItemInfoOutputList.add(BFFItemInfoOutput.builder()
+                                                .id(storeItem.getId())
+                                                .title(storeItem.getTitle())
+                                                .description(storeItem.getDescription())
+                                                .tags(storeItem.getTags())
+                                                .description(storeItem.getDescription())
+                                                .vendorName(storeItem.getVendor())
+                                                .media(storeItem.getMedia())
+                                                .build());
+        }) ;
 
         IntStream.range(0, Math.min(bffItemInfoOutputList.size(), getItemByTagResponseList.size()))
                 .forEach(i -> {

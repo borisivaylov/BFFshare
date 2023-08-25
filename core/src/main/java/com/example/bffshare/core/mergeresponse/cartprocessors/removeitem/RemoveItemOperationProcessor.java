@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 import java.util.UUID;
 
+    // Removes an item by id from current user's cart.
+
 @Service
 @RequiredArgsConstructor
 public class RemoveItemOperationProcessor implements RemoveItemOperation {

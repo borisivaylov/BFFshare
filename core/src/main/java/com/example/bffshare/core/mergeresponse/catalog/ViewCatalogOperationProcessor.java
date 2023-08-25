@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/* Builds a viewCatalog request,which includes catalog id and sends it to the Storage service.
+   If such a catalog id exists, all available information about its catalog will be displayed. */
+
 @Service
 @RequiredArgsConstructor
 public class ViewCatalogOperationProcessor implements ViewCatalogOperation {
@@ -31,13 +34,13 @@ public class ViewCatalogOperationProcessor implements ViewCatalogOperation {
                             .actualPrice(item.getActualPrice())
                             .discount(item.getDiscount())
                             .onSalePrice(item.getOnSalePrice())
-                    .build());
+                            .build());
         });
 
         return ViewCatalogResult.builder()
-                .catalogId(currentCatalog.getCatalogId())
-                .catalogItems(viewCatalogItemList)
-                .dateOfCreation(currentCatalog.getDateOfCreation())
-                .build();
+                            .catalogId(currentCatalog.getCatalogId())
+                            .catalogItems(viewCatalogItemList)
+                            .dateOfCreation(currentCatalog.getDateOfCreation())
+                            .build();
     }
 }

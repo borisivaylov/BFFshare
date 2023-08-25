@@ -1,6 +1,5 @@
 package com.example.bffshare.core.mergeresponse.item.pageiteminfo;
 
-
 import com.example.bffshare.api.item.iteminfopage.ItemPageOperation;
 import com.example.bffshare.api.item.iteminfopage.ItemPageRequest;
 import com.example.bffshare.api.item.iteminfopage.ItemPageResponse;
@@ -13,9 +12,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.List;
+
+// Returns information about items found by tag, using pagination.
 
 @Service
 @RequiredArgsConstructor

@@ -17,6 +17,8 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 import java.util.UUID;
 
+// Adds item to current user's cart
+
 @Service
 @RequiredArgsConstructor
 public class AddItemOperationProcessor implements AddItemToCartOperation {
@@ -34,8 +36,7 @@ public class AddItemOperationProcessor implements AddItemToCartOperation {
         User currentUser = userRepository.findByEmail(authentication.getName())
                 .orElseThrow(()-> new UsernameNotFoundException("user not found"));
 
-        if (currentUser.getCart().getItemMap().containsKey(addItemToCartRequest.getItemId()))
-        {
+        if (currentUser.getCart().getItemMap().containsKey(addItemToCartRequest.getItemId())) {
             currentUser.getCart().getItemMap()
                     .put(addItemToCartRequest.getItemId(),currentUser.getCart().getItemMap()
                             .get(addItemToCartRequest.getItemId()) + addItemToCartRequest.getQuantity());
